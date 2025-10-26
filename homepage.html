@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ohona Rahman — UX/UI Portfolio</title>
+  <meta name="description" content="UXID student at Drexel turning messy problems into clear, friendly flows. Passionate about accessibility and design systems." />
+  
+  <!-- Social meta tags -->
+  <meta property="og:title" content="Ohona Rahman — UX/UI Portfolio">
+  <meta property="og:description" content="UXID student at Drexel turning messy problems into clear, friendly flows">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23D8b39e'/></svg>">
+
+  <!-- Color system -->
+  <style>
+    :root{
+      --bg: #E4DBCC;
+      --surface: #fcf7eb;
+      --text: #5a4433;
+      --muted: #736555;
+      --accent: #D8b39e;
+      --accent-2:#c9a28d;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(59, 16, 16, 0.219);
+      --maxw: 1100px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{ --bg:#E4DBCC; --surface:#fcf7eb; --text:#5a4433; --muted:#736555; --accent:#D8b39e; --accent-2:#c9a28d; }
+    }
+
+    *{ box-sizing: border-box }
+    html{ scroll-behavior: smooth; scroll-padding-top: 80px }
+    body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--text); line-height:1.6; }
+    a{ color:inherit; text-decoration: none }
+    img{ max-width:100%; display:block; }
+    .container{ width: min(100% - 2rem, var(--maxw)); margin-inline:auto }
+    .pill{ display:inline-flex; align-items:center; gap:.5rem; padding:.4rem .75rem; border-radius:999px; background: linear-gradient( to right, color-mix(in srgb, var(--accent) 18%, transparent), color-mix(in srgb, var(--accent-2) 18%, transparent) ); border: 1px solid color-mix(in srgb, var(--text) 10%, transparent); font-weight:600; }
+    .shadow{ box-shadow: var(--shadow) }
+    .card{ background: var(--surface); border: 1px solid color-mix(in srgb, var(--text) 8%, transparent); border-radius: var(--radius); }
+    .muted{ color: var(--muted) }
+    .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 1.1rem; border-radius: 12px; font-weight:600; border:1px solid color-mix(in srgb, var(--text) 12%, transparent); background: color-mix(in srgb, var(--surface) 70%, var(--bg)); transition: transform .08s ease, box-shadow .08s ease; cursor:pointer; }
+    .btn:hover{ transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.08) }
+    .btn.primary{ background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b0e13; border-color: transparent; }
+
+    /* Header */
+    header{ background: color-mix(in srgb, var(--bg) 94%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--text) 10%, transparent); z-index: 10; backdrop-filter: blur(8px); }
+    .nav{ display:flex; align-items:center; justify-content:space-between; padding:.75rem 0 }
+    .brand{ display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.3px }
+    .brand .dot{ width:10px; height:10px; border-radius:999px; background: linear-gradient(135deg, var(--accent), var(--accent-2)); display:inline-block }
+    nav ul{ list-style:none; display:flex; gap:1.5rem; margin:0; padding:0 }
+    nav a{ transition: color .2s ease }
+    nav a:hover{ color: var(--accent) }
+
+    /* Hero */
+    .hero{ padding: 4.5rem 0 3rem; display:grid; gap:2rem; align-items:center; grid-template-columns: 1fr 1fr; }
+    .hero .visual{ border-radius: var(--radius); overflow:hidden; order: 2; max-width: 500px; justify-self: end; }
+    .hero .text{ order: 1 }
+    .hero h1{ font-size: clamp(1.8rem, 4.5vw, 3rem); line-height:1.1; margin:.6rem 0 }
+    .hero p{ font-size: clamp(1rem, 2.2vw, 1.15rem) }
+    @media (max-width: 900px){ 
+      .hero{ grid-template-columns: 1fr; min-height: unset } 
+      .hero .visual{ max-height: 45vh; order: 1; justify-self: center; max-width: 400px }
+      .hero .text{ order: 2 }
+    }
+
+    /* Section */
+    section{ padding: 2.5rem 0 }
+    section header h2{ font-size: clamp(1.2rem, 2vw, 1.45rem); margin: 0 0 1rem; letter-spacing:.2px }
+    .section-top{ display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1rem }
+
+    /* Grid */
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap: 1rem }
+    .col-4{ grid-column: span 4 }
+    .col-6{ grid-column: span 6 }
+    .col-12{ grid-column: 1 / -1 }
+    @media (max-width: 900px){ .col-4, .col-6{ grid-column: span 12 } }
+
+    .case-card{ overflow:hidden; transition: transform .2s ease, box-shadow .2s ease }
+    .case-card:hover{ transform: translateY(-2px); box-shadow: 0 12px 40px rgba(59, 16, 16, 0.25) }
+    .case-media{ aspect-ratio: 16/10; background: linear-gradient(135deg, #D8b39e, #c9a28d); display:grid; place-items:center; border-bottom:1px solid color-mix(in srgb, var(--text) 10%, transparent); position:relative; overflow:hidden }
+    .case-media::before{ content:''; position:absolute; inset:0; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,.2), transparent); opacity:.6 }
+    .case-media span{ color: rgba(11,14,19,.7); font-size:.9rem; font-weight:600; z-index:1 }
+    .case-content{ padding:1rem }
+    .case-content h3{ margin:0 0 .5rem }
+    .tags{ display:flex; flex-wrap:wrap; gap:.4rem; margin-top:.6rem }
+    .tag{ font-size:.75rem; padding:.25rem .5rem; border:1px solid color-mix(in srgb, var(--text) 14%, transparent); border-radius:999px; color: var(--muted) }
+
+    /* About */
+    .about-layout{ display:grid; grid-template-columns: 2fr 2fr 1.5fr; gap:2rem; background: var(--surface); border: 1px solid color-mix(in srgb, var(--text) 8%, transparent); border-radius: var(--radius); padding:2rem; box-shadow: var(--shadow) }
+    .about-photo{ border-radius: var(--radius); overflow:hidden; display:flex; align-items:center; justify-content:center }
+    .about-photo img{ width:100%; height:auto; object-fit:cover; display:block }
+    .about-left h3{ font-size:2rem; margin:0 0 1rem }
+    .about-left h4, .about-right h4{ font-size:.85rem; text-transform:uppercase; letter-spacing:.5px; margin:1.5rem 0 .8rem; color:var(--text); font-weight:800 }
+    .about-left p, .about-right p{ line-height:1.7 }
+    .experience-item{ padding-bottom:1rem }
+    .stack{ display:flex; flex-wrap:wrap; gap:.8rem; margin-top:.8rem }
+    .software-icon{ width:40px; height:40px; display:grid; place-items:center; border-radius:8px; background:var(--text); color:var(--surface); font-weight:800; font-size:.85rem; border:2px solid var(--text) }
+    .chip{ padding:.45rem .7rem; border-radius: 999px; background: color-mix(in srgb, var(--text) 10%, transparent); color: var(--text); border: 1px solid color-mix(in srgb, var(--text) 15%, transparent); font-size:.85rem }
+    @media (max-width: 900px){ 
+      .about-layout{ grid-template-columns: 1fr; } 
+      .about-photo{ order: -1; max-width:300px; margin:0 auto }
+    }
+
+    /* Contact */
+    .contact-layout{ display:grid; grid-template-columns: 1fr 1fr; gap:3rem; }
+    .contact-info{ display:flex; flex-direction:column }
+    .contact-info h3{ font-size:2rem; margin:0 0 1rem; line-height:1.2 }
+    .contact-info p{ font-size:1.1rem; line-height:1.7; margin-bottom:2rem }
+    .contact-methods{ display:flex; flex-direction:column; gap:1rem; flex-grow:1; justify-content:center }
+    .contact-method{ display:flex; align-items:center; gap:1rem; padding:1.2rem; background:var(--surface); border:1px solid color-mix(in srgb, var(--text) 10%, transparent); border-radius:12px; transition: all .2s ease }
+    .contact-method:hover{ border-color:var(--accent); transform:translateX(4px) }
+    .contact-method-icon{ width:52px; height:52px; display:grid; place-items:center; border-radius:10px; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b0e13; flex-shrink:0 }
+    .contact-method-text strong{ display:block; margin-bottom:.3rem; font-size:1.05rem }
+    .contact-method-text span{ color:var(--muted); font-size:.95rem }
+    form{ display:grid; gap:.75rem }
+    label{ font-weight:600; font-size:.9rem }
+    input, textarea{ width:100%; padding:.9rem 1rem; border-radius:12px; border:1px solid color-mix(in srgb, var(--text) 14%, transparent); background: color-mix(in srgb, var(--surface) 70%, var(--bg)); color:var(--text); font-family:inherit; transition: border-color .2s ease }
+    input:focus, textarea:focus{ outline:none; border-color: var(--accent) }
+    textarea{ min-height: 140px; resize: vertical }
+    @media (max-width: 900px){ .contact-layout{ grid-template-columns: 1fr } }
+
+    /* Footer */
+    footer{ padding:2.5rem 0; color:var(--muted); border-top:1px solid color-mix(in srgb, var(--text) 10%, transparent) }
+    .foot{ display:flex; justify-content:space-between; gap:1rem; align-items:center; flex-wrap:wrap }
+    .socials{ display:flex; gap:.6rem; flex-wrap:wrap }
+    .socials a{ padding:.5rem .75rem; border-radius:10px; border:1px solid color-mix(in srgb, var(--text) 14%, transparent); transition: all .2s ease; font-size:.9rem }
+    .socials a:hover{ background: var(--surface); border-color: var(--accent) }
+
+    /* Skip link for accessibility */
+    .skip-link{ position:absolute; left:-9999px; z-index:999 }
+    .skip-link:focus{ left:1rem; top:1rem; background:var(--surface); padding:.5rem .75rem; border-radius:8px; border:1px solid color-mix(in srgb, var(--text) 14%, transparent) }
+
+    /* Success message */
+    .success-msg{ padding:1rem; background: color-mix(in srgb, var(--accent) 15%, var(--surface)); border:1px solid var(--accent); border-radius:12px; margin-top:1rem; display:none }
+    .success-msg.show{ display:block }
+  </style>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <header aria-label="Primary">
+    <div class="container nav">
+      <a class="brand" href="#home" aria-label="Home">
+        <span class="dot" aria-hidden="true"></span>
+        <span>ohona.me</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#work">work</a></li>
+          <li><a href="#about">about</a></li>
+          <li><a href="#contact">contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section id="home" class="hero container">
+      <div class="text" style="display:flex;flex-direction:column;justify-content:center">
+        <span class="pill">UX/UI Designer • Research‑driven</span>
+        <h1>Hi, I'm Ohona — a UI/UX design student at Drexel University.</h1>
+        <p class="muted">I turn messy problems into clear, friendly flows. Currently a UXID student at Drexel; I love accessibility, design systems, and crisp micro‑interactions.</p>
+        <div style="display:flex; gap:.6rem; margin-top:1rem; flex-wrap:wrap">
+          <a class="btn primary" href="#work">See my work</a>
+          <a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div class="visual" aria-hidden="true">
+        <img alt="Portrait of Ohona Rahman" src="Untitled_Artwork copy.png" loading="eager" style="width:100%;height:100%;object-fit:cover" />
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section id="work" class="container">
+      <header class="section-top">
+        <h2>Projects</h2>
+        <a href="all-projects.html" class="muted" style="display:flex; align-items:center; gap:.4rem; transition: color .2s ease">
+          View all projects 
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </header>
+      <div class="grid">
+        <!-- Project 1 -->
+        <a href="dreamcharter.html" class="card case-card col-4 shadow">
+          <div class="case-media">
+            <span>School website design</span>
+          </div>
+          <div class="case-content">
+            <h3>Dream Charter School</h3>
+            <p class="muted">Modern, accessible school website focused on parent engagement and clear information architecture.</p>
+            <div class="tags"><span class="tag">Web Design</span><span class="tag">A11y</span></div>
+            <div style="margin-top:.8rem"><span class="btn">View project →</span></div>
+          </div>
+        </a>
+        <!-- Project 2 -->
+        <a href="kungfutea.html" class="card case-card col-4 shadow">
+          <div class="case-media">
+            <span>Order flow prototype</span>
+          </div>
+          <div class="case-content">
+            <h3>Kung Fu Tea: Order Flow</h3>
+            <p class="muted">Simplified modifiers, clearer CTA placement, reduced drop‑off on mobile.</p>
+            <div class="tags"><span class="tag">User Flows</span><span class="tag">Prototype</span></div>
+            <div style="margin-top:.8rem"><span class="btn">View project →</span></div>
+          </div>
+        </a>
+        <!-- Project 3 -->
+        <a href="safeplate.html" class="card case-card col-4 shadow">
+          <div class="case-media">
+            <span>Allergen-friendly app</span>
+          </div>
+          <div class="case-content">
+            <h3>SafePlate</h3>
+            <p class="muted">Restaurant finder with allergen filtering and accessibility-first design for food safety.</p>
+            <div class="tags"><span class="tag">UI/UX</span><span class="tag">A11y</span></div>
+            <div style="margin-top:.8rem"><span class="btn">View project →</span></div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="container">
+      <header class="section-top">
+        <h2>About Me</h2>
+        <a class="btn" href="#contact">Say hello →</a>
+      </header>
+      <div class="about-layout">
+        <div class="about-left">
+          <h3 style="font-size:2rem; margin:0 0 1rem">Hey, friends!</h3>
+          <p class="muted">I'm Ohona Rahman — a UX/UI design student based in Philadelphia.</p>
+          <p class="muted">Currently a UXID student at Drexel with a passion for creating accessible, user-centered designs. I hope to change the world one craft at a time.</p>
+          
+          <h4 style="margin-top:2rem">EDUCATION</h4>
+          <div style="margin-bottom:1.5rem">
+            <p style="color:var(--accent); font-weight:700; margin:.3rem 0">2022 - PRESENT</p>
+            <p style="margin:.3rem 0"><strong>B.S. User Experience & Interaction Design</strong></p>
+            <p class="muted" style="margin:.3rem 0; font-size:.9rem">Drexel University, Philadelphia</p>
+          </div>
+
+          <h4 style="margin-top:2rem">SOFTWARES</h4>
+          <div class="stack" style="margin-top:.8rem">
+            <span class="software-icon" title="Figma">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 24c2.208 0 4-1.792 4-4v-4H8c-2.208 0-4 1.792-4 4s1.792 4 4 4z"/><path d="M4 12c0-2.208 1.792-4 4-4h4v8H8c-2.208 0-4-1.792-4-4z"/><path d="M4 4c0-2.208 1.792-4 4-4h4v8H8C5.792 8 4 6.208 4 4z"/><path d="M12 0h4c2.208 0 4 1.792 4 4s-1.792 4-4 4h-4V0z"/><circle cx="16" cy="12" r="4"/></svg>
+            </span>
+            <span class="software-icon" title="Adobe Photoshop">Ps</span>
+            <span class="software-icon" title="Adobe Illustrator">Ai</span>
+            <span class="software-icon" title="Adobe XD">Xd</span>
+            <span class="software-icon" title="Miro">Mi</span>
+          </div>
+        </div>
+
+        <div class="about-right">
+          <h4>WORK EXPERIENCE</h4>
+          
+          <div class="experience-item">
+            <p style="color:var(--accent); font-weight:700; margin:.3rem 0">JUNE 2024 - AUGUST 2024</p>
+            <p style="margin:.3rem 0"><strong>UI/UX Intern</strong></p>
+            <p class="muted" style="margin:.3rem 0; font-size:.9rem">Coded By Kids, 3624 Market St</p>
+            <p class="muted" style="margin:.3rem 0; font-size:.9rem">Philadelphia, PA</p>
+            <div style="margin-top:.8rem; line-height:1.7">
+              <p class="muted" style="font-size:.9rem; margin:.4rem 0">• Designed and prototyped user interfaces in Figma with a focus on accessibility, clarity, and consistency.</p>
+              <p class="muted" style="font-size:.9rem; margin:.4rem 0">• Conducted usability testing and incorporated feedback to refine navigation and interaction flows.</p>
+              <p class="muted" style="font-size:.9rem; margin:.4rem 0">• Collaborated with developers to ensure wireframes and design systems translated into functional products.</p>
+              <p class="muted" style="font-size:.9rem; margin:.4rem 0">• Created and maintained style guides and design documentation to support a consistent user experience.</p>
+            </div>
+            <div class="tags" style="margin-top:.8rem">
+              <span class="tag">Figma</span>
+              <span class="tag">Usability Testing</span>
+              <span class="tag">Design Systems</span>
+              <span class="tag">Wireframing</span>
+            </div>
+          </div>
+
+          <h4 style="margin-top:2rem">INTERESTS</h4>
+          <p class="muted" style="margin-top:.5rem; line-height:1.8">
+            Accessibility<br>
+            Design Systems<br>
+            Coffee & Bubble Tea<br>
+            Cats<br>
+            Photography
+          </p>
+        </div>
+
+        <div class="about-photo">
+          <img src="image 6.png" alt="Ohona Rahman portrait" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container">
+      <header class="section-top">
+        <h2>Let's Connect</h2>
+        <span class="muted">Open to opportunities and collaborations</span>
+      </header>
+      
+      <div class="contact-layout">
+        <div class="contact-info">
+          <h3>Have a project in mind? Let's chat over bubble tea!</h3>
+          <p class="muted">I'm always excited to collaborate on meaningful projects, discuss design systems, or simply connect with fellow creatives.</p>
+          
+          <div class="contact-methods">
+            <a href="mailto:ohonarahman@example.com" class="contact-method">
+              <div class="contact-method-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div class="contact-method-text">
+                <strong>Email</strong>
+                <span>ohonarahman@example.com</span>
+              </div>
+            </a>
+
+            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener" class="contact-method">
+              <div class="contact-method-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+              </div>
+              <div class="contact-method-text">
+                <strong>LinkedIn</strong>
+                <span>Connect with me</span>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <form class="card shadow" style="padding:1.5rem" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <label for="name">Name</label>
+            <input id="name" name="name" autocomplete="name" placeholder="Your name" required>
+            
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" placeholder="your.email@example.com" required>
+            
+            <label for="msg">Message</label>
+            <textarea id="msg" name="message" placeholder="Tell me about your project or just say hi!" required></textarea>
+            
+            <button class="btn primary" type="submit" style="width:100%; justify-content:center">
+              Send message
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </button>
+            
+            <div class="success-msg" id="successMsg">
+              <strong>Thanks for reaching out!</strong> I'll get back to you soon.
+            </div>
+          </form>
+          <p class="muted" style="margin-top:.8rem; font-size:.85rem; text-align:center">
+            Usually responds within 24 hours ⚡
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Résumé anchor -->
+    <section id="resume" class="container">
+      <header class="section-top">
+        <h2>Resume</h2>
+        <a class="btn" href="Ohona-Rahman-Resume.pdf" download>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download PDF
+        </a>
+      </header>
+      <div class="resume-layout card shadow" style="padding:2.5rem">
+        <div class="resume-header" style="text-align:center; margin-bottom:2rem; padding-bottom:1.5rem; border-bottom:2px solid color-mix(in srgb, var(--text) 12%, transparent)">
+          <h1 style="font-size:2.5rem; margin:0 0 .5rem">Ohona Rahman</h1>
+          <div style="display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap; color:var(--muted); font-size:.95rem">
+            <a href="https://ohona.me" style="display:flex; align-items:center; gap:.4rem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              ohona.me
+            </a>
+            <a href="mailto:or79@drexel.edu" style="display:flex; align-items:center; gap:.4rem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              or79@drexel.edu
+            </a>
+            <a href="https://www.linkedin.com/in/ohona-rahman" style="display:flex; align-items:center; gap:.4rem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <span style="display:flex; align-items:center; gap:.4rem">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              267-597-1500
+            </span>
+          </div>
+        </div>
+
+        <div style="display:grid; gap:2rem">
+          <!-- Education -->
+          <div>
+            <h3 style="font-size:1.3rem; margin:0 0 1rem; color:var(--accent); text-transform:uppercase; letter-spacing:.5px; font-weight:800">Education</h3>
+            
+            <div style="margin-bottom:1.5rem">
+              <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:.5rem">
+                <div>
+                  <p style="margin:0; font-weight:700; font-size:1.05rem">Drexel University</p>
+                  <p style="margin:.2rem 0; color:var(--muted)">B.S. User Experience and Interaction Design</p>
+                </div>
+                <p style="margin:0; color:var(--accent); font-weight:600">Anticipated June 2029</p>
+              </div>
+              <p style="margin:.3rem 0; color:var(--muted); font-size:.9rem">Philadelphia, PA</p>
+            </div>
+
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:.5rem">
+                <div>
+                  <p style="margin:0; font-weight:700; font-size:1.05rem">Central High School</p>
+                  <p style="margin:.2rem 0; color:var(--muted)">B.A. Secondary Education</p>
+                </div>
+                <p style="margin:0; color:var(--accent); font-weight:600">June 2022</p>
+              </div>
+              <p style="margin:.3rem 0; color:var(--muted); font-size:.9rem">Philadelphia, PA</p>
+            </div>
+          </div>
+
+          <!-- Skills -->
+          <div>
+            <h3 style="font-size:1.3rem; margin:0 0 1rem; color:var(--accent); text-transform:uppercase; letter-spacing:.5px; font-weight:800">Skills</h3>
+            
+            <div style="display:grid; gap:1rem">
+              <div>
+                <p style="margin:0 0 .5rem; font-weight:700">Development</p>
+                <p style="margin:0; color:var(--muted); line-height:1.7">HTML, CSS, Javascript, Responsive Design, Accessibility (WCAG)</p>
+              </div>
+              
+              <div>
+                <p style="margin:0 0 .5rem; font-weight:700">Tools & Software</p>
+                <p style="margin:0; color:var(--muted); line-height:1.7">Figma, Adobe Illustrator, Adobe XD, Procreate, Canva, VS Code, GitHub, Miro, Trello</p>
+              </div>
+              
+              <div>
+                <p style="margin:0 0 .5rem; font-weight:700">Design & UX</p>
+                <p style="margin:0; color:var(--muted); line-height:1.7">Wireframing, Prototyping, User Research, Usability Testing, Persona Development, Journey Mapping, Interaction Design, Design Systems, Information Architecture</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div>
+            <h3 style="font-size:1.3rem; margin:0 0 1rem; color:var(--accent); text-transform:uppercase; letter-spacing:.5px; font-weight:800">Experience</h3>
+            
+            <div style="margin-bottom:1.5rem">
+              <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:.5rem">
+                <div>
+                  <p style="margin:0; font-weight:700; font-size:1.05rem">Drexel University - EAM211: Concert App</p>
+                  <p style="margin:.2rem 0; color:var(--muted)">UI/UX Designer</p>
+                </div>
+                <p style="margin:0; color:var(--accent); font-weight:600; white-space:nowrap">Sept 2025 – Dec 2025</p>
+              </div>
+              <p style="margin:.3rem 0 .8rem; color:var(--muted); font-size:.9rem">Philadelphia, PA</p>
+              <ul style="margin:0; padding-left:1.2rem; color:var(--muted); line-height:1.7">
+                <li>Designed a concert discovery app in Figma featuring live event information based on user location and preferences.</li>
+                <li>Conducted user surveys and usability testing to refine interface flow, accessibility, and real-time update features.</li>
+                <li>Applied SWOT and PESTLE analyses to inform design strategy and align with user and market needs.</li>
+                <li>Focused on responsive design, clear navigation, and intuitive visuals to enhance overall user experience.</li>
+              </ul>
+            </div>
+
+            <div style="margin-bottom:1.5rem">
+              <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:.5rem">
+                <div>
+                  <p style="margin:0; font-weight:700; font-size:1.05rem">Hack4Impact - Drexel University Chapter</p>
+                  <p style="margin:.2rem 0; color:var(--muted)">UI/UX Designer</p>
+                </div>
+                <p style="margin:0; color:var(--accent); font-weight:600; white-space:nowrap">May 2025 – June 2025</p>
+              </div>
+              <p style="margin:.3rem 0 .8rem; color:var(--muted); font-size:.9rem">Philadelphia, PA</p>
+              <ul style="margin:0; padding-left:1.2rem; color:var(--muted); line-height:1.7">
+                <li>Contributed to a nonprofit web project through Hack4Impact, supporting the design team with interface feedback and implementation.</li>
+                <li>Collaborated with fellow designers to refine layouts, improve usability, and ensure visual consistency.</li>
+                <li>Assisted in Figma prototyping and design system updates to align with project goals and accessibility standards.</li>
+              </ul>
+            </div>
+
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:.5rem">
+                <div>
+                  <p style="margin:0; font-weight:700; font-size:1.05rem">Coded By Kids - Tech & Innovation Internship</p>
+                  <p style="margin:.2rem 0; color:var(--muted)">UI/UX Intern</p>
+                </div>
+                <p style="margin:0; color:var(--accent); font-weight:600; white-space:nowrap">June 2024 – Aug 2024</p>
+              </div>
+              <p style="margin:.3rem 0 .8rem; color:var(--muted); font-size:.9rem">Philadelphia, PA</p>
+              <ul style="margin:0; padding-left:1.2rem; color:var(--muted); line-height:1.7">
+                <li>Designed and prototyped Safe Plate, an allergen-friendly restaurant finder app, during the Tech & Innovation Internship program.</li>
+                <li>Conducted user research and usability testing to identify pain points and refine the app's navigation and accessibility.</li>
+                <li>Built responsive prototypes in Figma, emphasizing WCAG accessibility, clear visual hierarchy, and consistent design systems.</li>
+                <li>Presented design solutions and product rationale through pitch decks and team reviews.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Activities -->
+          <div>
+            <h3 style="font-size:1.3rem; margin:0 0 1rem; color:var(--accent); text-transform:uppercase; letter-spacing:.5px; font-weight:800">Activities</h3>
+            
+            <div style="margin-bottom:1.5rem">
+              <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:.5rem">
+                <div>
+                  <p style="margin:0; font-weight:700; font-size:1.05rem">Philadelphia Futures</p>
+                  <p style="margin:.2rem 0; color:var(--muted)">Sponsor-A-Scholar Student</p>
+                </div>
+                <p style="margin:0; color:var(--accent); font-weight:600; white-space:nowrap">Oct 2018 – Present</p>
+              </div>
+              <p style="margin:.3rem 0 .8rem; color:var(--muted); font-size:.9rem">Philadelphia, PA</p>
+              <ul style="margin:0; padding-left:1.2rem; color:var(--muted); line-height:1.7">
+                <li>Selected for a competitive college-access and mentorship program supporting first-generation college students.</li>
+                <li>Participated in academic enrichment, college readiness workshops, and career development mentorship.</li>
+                <li>Engaged with mentors and program sponsors to foster professional growth and strengthen academic goals.</li>
+              </ul>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; gap:.8rem">
+              <span style="padding:.5rem .9rem; background:color-mix(in srgb, var(--accent) 15%, var(--surface)); border:1px solid var(--accent); border-radius:999px; font-size:.9rem">Hack4Impact Drexel — Member</span>
+              <span style="padding:.5rem .9rem; background:color-mix(in srgb, var(--accent) 15%, var(--surface)); border:1px solid var(--accent); border-radius:999px; font-size:.9rem">Drexel SASE — Member</span>
+              <span style="padding:.5rem .9rem; background:color-mix(in srgb, var(--accent) 15%, var(--surface)); border:1px solid var(--accent); border-radius:999px; font-size:.9rem">Drexel CHI UX Club — Member</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <p>&copy; 2025 Ohona Rahman. All rights reserved.</p>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/ohona-rahman/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/ohona-rahman" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Form submission handling
+    const form = document.getElementById('contactForm');
+    const successMsg = document.getElementById('successMsg');
+    
+    form.addEventListener('submit', function(e) {
+      // Allow form to submit to Formspree
+      setTimeout(() => {
+        successMsg.classList.add('show');
+        form.reset();
+      }, 1000);
+    });
+  </script>
+</body>
+</html>
