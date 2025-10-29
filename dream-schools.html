@@ -34,6 +34,7 @@
     .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 1.1rem; border-radius: 12px; font-weight:600; border:1px solid color-mix(in srgb, var(--text) 12%, transparent); background: color-mix(in srgb, var(--surface) 70%, var(--bg)); transition: transform .08s ease, box-shadow .08s ease; cursor:pointer; }
     .btn:hover{ transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.08) }
     .btn.primary{ background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b0e13; border-color: transparent; }
+    .wip-badge{ display:inline-block; padding:.5rem 1rem; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b0e13; border-radius:999px; font-weight:700; font-size:.85rem; margin-bottom:1rem }
 
     header{ background: color-mix(in srgb, var(--bg) 94%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--text) 10%, transparent); z-index: 10; backdrop-filter: blur(8px); position: sticky; top: 0; }
     .nav{ display:flex; align-items:center; justify-content:space-between; padding:.75rem 0 }
@@ -53,38 +54,34 @@
     .stat-card h3{ font-size:.85rem; text-transform:uppercase; letter-spacing:.5px; margin:0 0 .5rem; color:var(--muted); font-weight:700 }
     .stat-card p{ margin:0; font-size:1.05rem }
 
-    .featured-image{ margin:3rem 0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow) }
-    .featured-image img{ width:100%; height:auto }
+    .featured-image{ margin:2rem 0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow) }
 
-    section{ padding: 3rem 0 }
-    .section-title{ font-size: clamp(1.5rem, 3vw, 2rem); margin:0 0 1.5rem; }
-    .content-block{ max-width: 800px; margin:0 auto 3rem }
-    .content-block h2{ font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin:2rem 0 1rem }
-    .content-block h3{ font-size: 1.2rem; margin:1.5rem 0 .8rem; color:var(--accent) }
-    .content-block p{ margin:0 0 1rem; line-height:1.8; font-size:1.05rem }
-    .content-block ul{ margin:0 0 1.5rem; padding-left:1.5rem }
-    .content-block li{ margin:.5rem 0; line-height:1.7 }
+    section{ padding: 1.5rem 0 }
+    .section-title{ font-size: clamp(1.5rem, 3vw, 2rem); margin:0 0 1rem; }
+    .content-block{ max-width: 800px; margin:0 auto 1.5rem }
+    .content-block h2{ font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin:1.5rem 0 .8rem }
+    .content-block h3{ font-size: 1.2rem; margin:1.2rem 0 .6rem; color:var(--accent) }
+    .content-block p{ margin:0 0 .8rem; line-height:1.8; font-size:1.05rem }
+    .content-block ul{ margin:0 0 1rem; padding-left:1.5rem }
+    .content-block li{ margin:.4rem 0; line-height:1.7 }
 
-    .image-grid{ display:grid; gap:1.5rem; margin:3rem 0 }
-    .image-grid.two-col{ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) }
-    .image-grid img{ border-radius:var(--radius); width:100% }
-
-    .callout{ background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, var(--surface)), color-mix(in srgb, var(--accent-2) 15%, var(--surface))); border:1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius:var(--radius); padding:2rem; margin:2rem 0 }
-    .callout h3{ margin:0 0 1rem; color:var(--text) }
+    .callout{ background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, var(--surface)), color-mix(in srgb, var(--accent-2) 15%, var(--surface))); border:1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius:var(--radius); padding:1.5rem; margin:1.5rem 0 }
+    .callout h3{ margin:0 0 .8rem; color:var(--text) }
     .callout p{ margin:0 }
 
-    .team-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:1.5rem; margin:2rem 0 }
-    .team-member{ text-align:center; padding:1rem }
-    .team-member h4{ margin:0 0 .3rem; font-size:1rem }
-    .team-member p{ margin:0; font-size:.85rem; color:var(--muted) }
+    .team-grid{ display:flex; flex-wrap:wrap; gap:1rem; margin:1.5rem 0; justify-content:center }
+    .team-member{ padding:.6rem 1.2rem; background:var(--surface); border:1px solid color-mix(in srgb, var(--text) 12%, transparent); border-radius:999px; font-size:.9rem }
+    .team-member strong{ font-weight:600; margin-right:.3rem }
 
-    .next-project{ background:var(--surface); padding:3rem 2rem; border-radius:var(--radius); text-align:center; margin-top:4rem; border:1px solid color-mix(in srgb, var(--text) 8%, transparent) }
+    .tech-stack{ display:flex; flex-wrap:wrap; gap:.8rem; margin:1.5rem 0; justify-content:center }
+    .tech-tag{ padding:.5rem 1rem; background:var(--text); color:var(--surface); border-radius:999px; font-size:.85rem; font-weight:600 }
+
+    .next-project{ background:var(--surface); padding:2rem 1.5rem; border-radius:var(--radius); text-align:center; margin-top:2.5rem; border:1px solid color-mix(in srgb, var(--text) 8%, transparent) }
     .next-project h3{ margin:0 0 .5rem; font-size:1.8rem }
     .next-project p{ color:var(--muted); margin:0 0 1.5rem }
 
     @media (max-width: 768px){
       .project-stats{ grid-template-columns: 1fr }
-      .team-grid{ grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)) }
     }
   </style>
 </head>
@@ -106,14 +103,15 @@
 
   <main>
     <section class="project-hero container">
+      <span class="wip-badge">Project Complete</span>
       <h1>Dream Charter Schools Website</h1>
-      <p class="lead">Designing an accessible, mission-driven website to help Dream Schools connect with charter schools, volunteers, and donors.</p>
+      <p class="lead">Designing a comprehensive nonprofit website to help Dream Schools connect with charter schools, showcase their portfolio, and manage procurement opportunities.</p>
       
       <div class="tags">
         <span class="tag">UI/UX Design</span>
         <span class="tag">Figma</span>
-        <span class="tag">React</span>
         <span class="tag">Social Impact</span>
+        <span class="tag">Hack4Impact</span>
       </div>
 
       <div class="project-stats">
@@ -131,89 +129,97 @@
         </div>
         <div class="stat-card">
           <h3>Status</h3>
-          <p>In Progress</p>
+          <p>Final Design Delivered</p>
         </div>
-      </div>
     </section>
 
     <div class="container-wide">
       <div class="featured-image">
-        <div style="background: linear-gradient(135deg, #D8b39e, #c9a28d); aspect-ratio: 16/9; display:grid; place-items:center; color:rgba(11,14,19,.7); font-weight:600">
-          Dream Schools Website Mockup
+        <div style="background: linear-gradient(135deg, #D8b39e, #c9a28d); aspect-ratio: 16/9; display:grid; place-items:center; color:rgba(11,14,19,.7); font-weight:600; font-size:1.2rem">
+          Dream Schools Website Design
         </div>
       </div>
     </div>
 
     <section class="container">
       <div class="content-block">
-        <h2 class="section-title">Overview</h2>
-        <p>Dream Charter Schools needed a user-friendly and informative website to amplify their mission of supporting public charter schools. As part of the Hack4Impact team, I'm designing a platform that clearly communicates their impact and makes it easy for schools, volunteers, and donors to connect.</p>
+        <h2 class="section-title">The Challenge</h2>
+        <p>Dream Schools, a 501(c)(3) nonprofit founded in 2006, needed a comprehensive digital presence to support their mission of providing affordable, sustainable facilities for charter schools. Their challenge was multifaceted: they needed to communicate their value proposition to school leaders, showcase their portfolio of completed projects, manage ongoing procurement opportunities (bids and RFPs), and establish credibility through leadership visibility.</p>
         
-        <div class="callout">
-          <h3>🎯 The Challenge</h3>
-          <p>Dream Schools lacked an online presence, making it difficult for potential partners to discover their services. They needed a website with clear branding, easy navigation, and compelling content to attract schools in high-need communities.</p>
-        </div>
+        <p>Without a cohesive website, Dream Schools struggled to reach potential charter school partners and communicate the full scope of their services, from real estate development to project management and lease-to-own financing options.</p>
       </div>
     </section>
 
     <section class="container">
       <div class="content-block">
         <h2 class="section-title">Our Solution</h2>
-        <p>Working collaboratively with developers and fellow designers, we're creating:</p>
+        <p>Working collaboratively with developers and fellow designers at Hack4Impact, we created a comprehensive multi-page website with distinct sections for different audiences and purposes:</p>
+
+        <h3>Key Pages & Features</h3>
         <ul>
-          <li><strong>Mission-Driven Homepage:</strong> Clear messaging that communicates Dream Schools' impact and values</li>
-          <li><strong>Service Highlights:</strong> Sections showcasing past projects, available services, and success stories</li>
-          <li><strong>Engagement Tools:</strong> Contact forms for school leaders and volunteers to get involved</li>
-          <li><strong>Social Media Integration:</strong> Basic profiles to amplify outreach and community engagement</li>
+          <li><strong>Homepage:</strong> Hero section with mission statement "Building dreams, one school at a time" and clear value proposition highlighting 100% financing, full project management, and lease-to-own options</li>
+          <li><strong>About Us:</strong> Mission, leadership profiles (Jonathan Wolf, CEO and David Uminsky, Board Chair), organizational story, and impact metrics (10K+ students served, 1M+ square feet developed, 25+ projects completed)</li>
+          <li><strong>Services:</strong> Detailed breakdowns of Real Estate Development, Project Management, Renovations & Upgrades, and Lease-to-Purchase Financing with visual icons</li>
+          <li><strong>Portfolio:</strong> Showcase of completed projects including Innovation Academy (Philadelphia), Horizon Charter School (Atlanta), and Riverside Elementary (Denver) with project details, square footage, and key features</li>
+          <li><strong>Bids & RFPs:</strong> Active procurement opportunities with downloadable RFPs and submission portals for contractors, architects, and vendors</li>
+          <li><strong>Contact:</strong> Multi-field contact form, newsletter signup, donation CTA, and full contact information</li>
         </ul>
 
-        <h3>Design Approach</h3>
-        <p>I focused on creating an accessible, welcoming design that prioritizes clarity and trust. The visual identity uses warm colors and friendly typography to make the organization feel approachable while maintaining professionalism.</p>
+        <h3>Design System</h3>
+        <p>I established a warm, professional design system using:</p>
+        <ul>
+          <li><strong>Color Palette:</strong> Blue and coral/orange tones to convey trust and warmth, with neutral backgrounds for readability</li>
+          <li><strong>Typography:</strong> Clean, modern sans-serif fonts with clear hierarchy for mission-driven messaging</li>
+          <li><strong>Photography:</strong> Real images of students, construction, and completed facilities to humanize the mission</li>
+          <li><strong>Layout:</strong> Card-based design with clear CTAs, rounded corners, and generous whitespace for accessibility</li>
+          <li><strong>Components:</strong> Reusable stat cards, project cards, leadership profiles, and impact metrics</li>
+        </ul>
       </div>
     </section>
 
     <section class="container">
       <div class="content-block">
-        <h2 class="section-title">Expected Impact</h2>
-        <p>Once launched, the website will:</p>
+        <h2 class="section-title">Impact & Results</h2>
+        <p>The new Dream Schools website provides:</p>
         <ul>
-          <li>Significantly increase visibility for Dream Schools among charter school leaders</li>
-          <li>Streamline volunteer engagement and donor discovery</li>
-          <li>Better serve public charter schools in high-need communities</li>
-          <li>Provide a scalable foundation for future digital initiatives</li>
+          <li><strong>Professional Digital Presence:</strong> A comprehensive platform that establishes credibility with charter school leaders and potential partners</li>
+          <li><strong>Portfolio Showcase:</strong> Visual proof of successful projects with detailed case studies showing Innovation Academy, Horizon Charter School, and Riverside Elementary</li>
+          <li><strong>Procurement Transparency:</strong> Dedicated bids section streamlining the RFP process for contractors and vendors</li>
+          <li><strong>Lead Generation:</strong> Multiple conversion points through contact forms, newsletter signup, and donation CTAs</li>
+          <li><strong>Mission Communication:</strong> Clear messaging around equity, opportunity, and community impact that resonates with values-driven partners</li>
         </ul>
 
         <div class="callout">
-          <h3>💡 What I'm Learning</h3>
-          <p>This project is teaching me how to design for social impact organizations, balance stakeholder needs with user needs, and collaborate effectively in a cross-functional tech team. Working with Hack4Impact has deepened my understanding of accessible design and mission-driven product development.</p>
+          <h3>Design Impact</h3>
+          <p>The website successfully balances nonprofit mission-driven messaging with professional service delivery. By showcasing real projects, transparent leadership, and clear calls-to-action, the site positions Dream Schools as a trustworthy partner for charter schools nationwide. The design system is flexible enough to accommodate future growth while maintaining brand consistency across all touchpoints.</p>
         </div>
       </div>
     </section>
 
     <section class="container">
       <div class="content-block">
-        <h2 class="section-title">Project Team</h2>
+        <h2 class="section-title">What I Learned</h2>
+        <p>This project taught me how to design for complex organizational needs while maintaining user-friendly navigation. Key learnings include:</p>
+        <ul>
+          <li>Designing multi-page websites with distinct user journeys for different audiences (charter schools, contractors, donors)</li>
+          <li>Balancing nonprofit mission-driven content with professional service marketing</li>
+          <li>Creating scalable design systems that work across diverse content types (portfolio, bids, leadership)</li>
+          <li>Collaborating with developers to ensure designs translate effectively into React components</li>
+          <li>Prioritizing accessibility and readability for users seeking critical information about facilities and funding</li>
+        </ul>
+
+        <div class="callout">
+          <h3>Key Takeaway</h3>
+          <p>Working with Hack4Impact on Dream Schools deepened my understanding of how thoughtful UX design can amplify social impact. By creating clear pathways for different user types and establishing visual credibility through portfolio showcases and leadership profiles, we empowered Dream Schools to reach more charter schools and ultimately serve more students.</p>
+        </div>
+
+        <h2 class="section-title" style="margin-top:2rem">Project Team</h2>
         <div class="team-grid">
-          <div class="team-member">
-            <h4>Lola Sapaeva</h4>
-            <p>Lead UI/UX Designer</p>
-          </div>
-          <div class="team-member">
-            <h4>Ohona Rahman</h4>
-            <p>UI/UX Designer</p>
-          </div>
-          <div class="team-member">
-            <h4>Sam Waldman</h4>
-            <p>UI/UX Designer</p>
-          </div>
-          <div class="team-member">
-            <h4>Shams Abrar</h4>
-            <p>Frontend Developer</p>
-          </div>
-          <div class="team-member">
-            <h4>Chibuike Nwume</h4>
-            <p>Frontend Developer</p>
-          </div>
+          <span class="team-member"><strong>Lola Sapaeva</strong> Lead UI/UX Designer</span>
+          <span class="team-member"><strong>Ohona Rahman</strong> UI/UX Designer</span>
+          <span class="team-member"><strong>Sam Waldman</strong> UI/UX Designer</span>
+          <span class="team-member"><strong>Shams Abrar</strong> Frontend Developer</span>
+          <span class="team-member"><strong>Chibuike Nwume</strong> Frontend Developer</span>
         </div>
       </div>
     </section>
@@ -222,12 +228,12 @@
       <div class="next-project">
         <h3>Next Project</h3>
         <p class="muted">Check out another case study</p>
-        <a href="safeplate.html" class="btn primary">SafePlate: Allergen Finder →</a>
+        <a href="concert-app.html" class="btn primary">Concert/Venue App</a>
       </div>
     </div>
   </main>
 
-  <footer style="padding:2.5rem 0; color:var(--muted); border-top:1px solid color-mix(in srgb, var(--text) 10%, transparent); margin-top:4rem">
+  <footer style="padding:2rem 0; color:var(--muted); border-top:1px solid color-mix(in srgb, var(--text) 10%, transparent); margin-top:2.5rem">
     <div class="container" style="display:flex; justify-content:space-between; gap:1rem; align-items:center; flex-wrap:wrap">
       <small>© <span id="year"></span> Ohona Rahman</small>
       <a href="homepage.html" class="btn">Back to home</a>

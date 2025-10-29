@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Dream Charter Schools Website — Ohona Rahman</title>
-  <meta name="description" content="Dream Charter Schools website design case study by Ohona Rahman" />
+  <title>Concert/Venue App — Ohona Rahman</title>
+  <meta name="description" content="Concert/Venue App case study - Real-time concert companion by Ohona Rahman" />
   
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='40' fill='%23D8b39e'/></svg>">
 
@@ -34,6 +34,7 @@
     .btn{ display:inline-flex; align-items:center; gap:.6rem; padding:.85rem 1.1rem; border-radius: 12px; font-weight:600; border:1px solid color-mix(in srgb, var(--text) 12%, transparent); background: color-mix(in srgb, var(--surface) 70%, var(--bg)); transition: transform .08s ease, box-shadow .08s ease; cursor:pointer; }
     .btn:hover{ transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,.08) }
     .btn.primary{ background: linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b0e13; border-color: transparent; }
+    .wip-badge{ display:inline-block; padding:.5rem 1rem; background:linear-gradient(135deg, var(--accent), var(--accent-2)); color:#0b0e13; border-radius:999px; font-weight:700; font-size:.85rem; margin-bottom:1rem }
 
     header{ background: color-mix(in srgb, var(--bg) 94%, transparent); border-bottom: 1px solid color-mix(in srgb, var(--text) 10%, transparent); z-index: 10; backdrop-filter: blur(8px); position: sticky; top: 0; }
     .nav{ display:flex; align-items:center; justify-content:space-between; padding:.75rem 0 }
@@ -54,29 +55,26 @@
     .stat-card p{ margin:0; font-size:1.05rem }
 
     .featured-image{ margin:3rem 0; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow) }
-    .featured-image img{ width:100%; height:auto }
 
-    section{ padding: 3rem 0 }
-    .section-title{ font-size: clamp(1.5rem, 3vw, 2rem); margin:0 0 1.5rem; }
-    .content-block{ max-width: 800px; margin:0 auto 3rem }
-    .content-block h2{ font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin:2rem 0 1rem }
-    .content-block h3{ font-size: 1.2rem; margin:1.5rem 0 .8rem; color:var(--accent) }
-    .content-block p{ margin:0 0 1rem; line-height:1.8; font-size:1.05rem }
-    .content-block ul{ margin:0 0 1.5rem; padding-left:1.5rem }
-    .content-block li{ margin:.5rem 0; line-height:1.7 }
-
-    .image-grid{ display:grid; gap:1.5rem; margin:3rem 0 }
-    .image-grid.two-col{ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) }
-    .image-grid img{ border-radius:var(--radius); width:100% }
+    section{ padding: 1.5rem 0 }
+    .section-title{ font-size: clamp(1.5rem, 3vw, 2rem); margin:0 0 1rem; }
+    .content-block{ max-width: 800px; margin:0 auto 1.5rem }
+    .content-block h2{ font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin:1.5rem 0 .8rem }
+    .content-block h3{ font-size: 1.2rem; margin:1.2rem 0 .6rem; color:var(--accent) }
+    .content-block p{ margin:0 0 .8rem; line-height:1.8; font-size:1.05rem }
+    .content-block ul{ margin:0 0 1rem; padding-left:1.5rem }
+    .content-block li{ margin:.4rem 0; line-height:1.7 }
 
     .callout{ background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 15%, var(--surface)), color-mix(in srgb, var(--accent-2) 15%, var(--surface))); border:1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius:var(--radius); padding:2rem; margin:2rem 0 }
     .callout h3{ margin:0 0 1rem; color:var(--text) }
     .callout p{ margin:0 }
 
-    .team-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap:1.5rem; margin:2rem 0 }
-    .team-member{ text-align:center; padding:1rem }
-    .team-member h4{ margin:0 0 .3rem; font-size:1rem }
-    .team-member p{ margin:0; font-size:.85rem; color:var(--muted) }
+    .team-grid{ display:flex; flex-wrap:wrap; gap:1rem; margin:2rem 0; justify-content:center }
+    .team-member{ padding:.6rem 1.2rem; background:var(--surface); border:1px solid color-mix(in srgb, var(--text) 12%, transparent); border-radius:999px; font-size:.9rem }
+    .team-member strong{ font-weight:600; margin-right:.3rem }
+
+    .values-grid{ display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1rem; margin:2rem 0 }
+    .value-item{ padding:1rem; background:var(--surface); border:1px solid color-mix(in srgb, var(--text) 8%, transparent); border-radius:12px; text-align:center }
 
     .next-project{ background:var(--surface); padding:3rem 2rem; border-radius:var(--radius); text-align:center; margin-top:4rem; border:1px solid color-mix(in srgb, var(--text) 8%, transparent) }
     .next-project h3{ margin:0 0 .5rem; font-size:1.8rem }
@@ -106,52 +104,72 @@
 
   <main>
     <section class="project-hero container">
-      <h1>Dream Charter Schools Website</h1>
-      <p class="lead">Designing an accessible, mission-driven website to help Dream Schools connect with charter schools, volunteers, and donors.</p>
+      <span class="wip-badge">Project In Progress</span>
+      <h1>Concert/Venue App</h1>
+      <p class="lead">A real-time concert companion that enhances live music experiences by connecting fans with artists through synchronized setlists, lyrics, and interactive features.</p>
       
       <div class="tags">
         <span class="tag">UI/UX Design</span>
         <span class="tag">Figma</span>
-        <span class="tag">React</span>
-        <span class="tag">Social Impact</span>
+        <span class="tag">Product Management</span>
+        <span class="tag">EAM 211</span>
       </div>
 
       <div class="project-stats">
         <div class="stat-card">
           <h3>Role</h3>
-          <p>UI/UX Designer</p>
+          <p>UI/UX Designer & Product Strategist</p>
         </div>
         <div class="stat-card">
           <h3>Timeline</h3>
-          <p>Fall 2024 - Present</p>
+          <p>Fall 2025 - Present</p>
         </div>
         <div class="stat-card">
-          <h3>Organization</h3>
-          <p>Hack4Impact Drexel</p>
+          <h3>Course</h3>
+          <p>EAM 211: Project Analysis</p>
         </div>
         <div class="stat-card">
           <h3>Status</h3>
-          <p>In Progress</p>
+          <p>Research & Prototyping</p>
         </div>
       </div>
     </section>
 
     <div class="container-wide">
       <div class="featured-image">
-        <div style="background: linear-gradient(135deg, #D8b39e, #c9a28d); aspect-ratio: 16/9; display:grid; place-items:center; color:rgba(11,14,19,.7); font-weight:600">
-          Dream Schools Website Mockup
+        <div style="background: linear-gradient(135deg, #D8b39e, #c9a28d); aspect-ratio: 16/9; display:grid; place-items:center; color:rgba(11,14,19,.7); font-weight:600; font-size:1.2rem">
+          Concert App Mockup
         </div>
       </div>
     </div>
 
     <section class="container">
       <div class="content-block">
-        <h2 class="section-title">Overview</h2>
-        <p>Dream Charter Schools needed a user-friendly and informative website to amplify their mission of supporting public charter schools. As part of the Hack4Impact team, I'm designing a platform that clearly communicates their impact and makes it easy for schools, volunteers, and donors to connect.</p>
+        <h2 class="section-title">Mission, Vision & Values</h2>
+        <p><strong>Mission:</strong> To make the concert experience more interactive, engaging, inclusive, and memorable for concert-goers by connecting fans and artists through real-time information. We aim to enhance the concert experience by creating a deeper connection between audience and performance.</p>
+        
+        <p><strong>Vision:</strong> To redefine the concert experience by bridging technology and performance. An app that turns every show into an immersive, connected, and shared experience between fans and artists.</p>
+
+        <div class="values-grid">
+          <div class="value-item"><strong>Connection</strong></div>
+          <div class="value-item"><strong>Authenticity</strong></div>
+          <div class="value-item"><strong>Innovation</strong></div>
+          <div class="value-item"><strong>Collaboration</strong></div>
+          <div class="value-item"><strong>Community</strong></div>
+          <div class="value-item"><strong>Sustainability</strong></div>
+          <div class="value-item"><strong>Ethical Inclusion</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="content-block">
+        <h2 class="section-title">The Problem</h2>
+        <p>Many fans attend concerts with varying levels of knowledge about the opener, setlist, or even the artist. They may enjoy the performance but miss out on key information like song titles, lyrics, or the meaning behind the music. This disconnect between artist and audience reduces the potential for a fully immersive experience.</p>
         
         <div class="callout">
-          <h3>🎯 The Challenge</h3>
-          <p>Dream Schools lacked an online presence, making it difficult for potential partners to discover their services. They needed a website with clear branding, easy navigation, and compelling content to attract schools in high-need communities.</p>
+          <h3>The Challenge</h3>
+          <p>How do we bridge the gap between fans and artists during live performances while enhancing, not distracting from, the concert experience?</p>
         </div>
       </div>
     </section>
@@ -159,34 +177,69 @@
     <section class="container">
       <div class="content-block">
         <h2 class="section-title">Our Solution</h2>
-        <p>Working collaboratively with developers and fellow designers, we're creating:</p>
+        <p>The Concert/Venue App provides real-time, location-based information that enriches the live music experience:</p>
+
+        <h3>Core Features</h3>
         <ul>
-          <li><strong>Mission-Driven Homepage:</strong> Clear messaging that communicates Dream Schools' impact and values</li>
-          <li><strong>Service Highlights:</strong> Sections showcasing past projects, available services, and success stories</li>
-          <li><strong>Engagement Tools:</strong> Contact forms for school leaders and volunteers to get involved</li>
-          <li><strong>Social Media Integration:</strong> Basic profiles to amplify outreach and community engagement</li>
+          <li><strong>Artist Information:</strong> Short biography, top tracks, and discography of the current performer</li>
+          <li><strong>Live Setlist:</strong> Real-time display of songs being performed, highlighting the current track</li>
+          <li><strong>Synced Lyrics:</strong> Karaoke-style lyrics that follow along with the live performance</li>
+          <li><strong>Interactive Elements:</strong> Fan engagement through reactions, sharing moments, and community features</li>
         </ul>
 
-        <h3>Design Approach</h3>
-        <p>I focused on creating an accessible, welcoming design that prioritizes clarity and trust. The visual identity uses warm colors and friendly typography to make the organization feel approachable while maintaining professionalism.</p>
+        <h3>Potential Add-Ons</h3>
+        <ul>
+          <li>Integration with ticketing platforms (Ticketmaster, Stubhub)</li>
+          <li>Merchandise links and tour date information</li>
+          <li>Artist-fan interaction tools</li>
+          <li>Post-concert memory sharing and playlists</li>
+        </ul>
       </div>
     </section>
 
     <section class="container">
       <div class="content-block">
-        <h2 class="section-title">Expected Impact</h2>
-        <p>Once launched, the website will:</p>
+        <h2 class="section-title">Research & Analysis</h2>
+        
+        <h3>SWOT Analysis Highlights</h3>
+        <p><strong>Strengths:</strong> Real-time information makes concerts more immersive; strong partnership potential with venues and ticketing platforms; unique combination of features not found in competitors.</p>
+
+        <p><strong>Weaknesses:</strong> Licensing costs for lyrics and music data; dependency on venue partnerships; initial marketing and development costs.</p>
+
+        <p><strong>Opportunities:</strong> Growing demand for interactive experiences at live events; no existing app combines all these features; APIs available from Spotify, Apple Music, and Ticketmaster.</p>
+
+        <p><strong>Threats:</strong> Copyright and licensing challenges; competition from Shazam, Setlist.fm, and BandsinTown; streaming platforms could develop similar features.</p>
+
+        <h3>Competitive Analysis</h3>
         <ul>
-          <li>Significantly increase visibility for Dream Schools among charter school leaders</li>
-          <li>Streamline volunteer engagement and donor discovery</li>
-          <li>Better serve public charter schools in high-need communities</li>
-          <li>Provide a scalable foundation for future digital initiatives</li>
+          <li><strong>Bandsintown/Songkick:</strong> Focus on tour discovery, not real-time setlists or lyrics</li>
+          <li><strong>Setlist.fm:</strong> User-generated setlists, not always accurate or synced live</li>
+          <li><strong>Shazam:</strong> Identifies songs but doesn't show curated setlists or live artist info</li>
         </ul>
 
         <div class="callout">
-          <h3>💡 What I'm Learning</h3>
-          <p>This project is teaching me how to design for social impact organizations, balance stakeholder needs with user needs, and collaborate effectively in a cross-functional tech team. Working with Hack4Impact has deepened my understanding of accessible design and mission-driven product development.</p>
+          <h3>Key Finding</h3>
+          <p>No competitor combines real-time setlists, synced lyrics, artist information, and interactive features into one platform. This represents a significant market opportunity.</p>
         </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="content-block">
+        <h2 class="section-title">Business Model</h2>
+        
+        <h3>Revenue Streams</h3>
+        <ul>
+          <li><strong>Freemium Model:</strong> Free version with basic features; premium subscription for ad-free experience and advanced features</li>
+          <li><strong>Partnerships:</strong> Revenue from venues, artists, and ticketing platforms</li>
+          <li><strong>Affiliate Links:</strong> Merchandise sales and ticket purchases</li>
+          <li><strong>In-App Advertising:</strong> Non-intrusive ads for free tier users</li>
+        </ul>
+
+        <h3>Resource Requirements</h3>
+        <p><strong>Technology:</strong> Figma for design, music API integrations (Spotify/Apple Music), cloud hosting, cybersecurity infrastructure</p>
+        <p><strong>Team:</strong> UI/UX designers, frontend/backend developers, marketing team, partnership coordinators, customer support</p>
+        <p><strong>Legal:</strong> Music licensing, copyright clearances, data privacy compliance</p>
       </div>
     </section>
 
@@ -194,26 +247,15 @@
       <div class="content-block">
         <h2 class="section-title">Project Team</h2>
         <div class="team-grid">
-          <div class="team-member">
-            <h4>Lola Sapaeva</h4>
-            <p>Lead UI/UX Designer</p>
-          </div>
-          <div class="team-member">
-            <h4>Ohona Rahman</h4>
-            <p>UI/UX Designer</p>
-          </div>
-          <div class="team-member">
-            <h4>Sam Waldman</h4>
-            <p>UI/UX Designer</p>
-          </div>
-          <div class="team-member">
-            <h4>Shams Abrar</h4>
-            <p>Frontend Developer</p>
-          </div>
-          <div class="team-member">
-            <h4>Chibuike Nwume</h4>
-            <p>Frontend Developer</p>
-          </div>
+          <span class="team-member"><strong>Ohona Rahman</strong> UI/UX Designer</span>
+          <span class="team-member"><strong>Fei Young</strong> Product Strategist</span>
+          <span class="team-member"><strong>Tawhir Moore</strong> Business Analyst</span>
+          <span class="team-member"><strong>Declan Beauchamp</strong> Market Researcher</span>
+        </div>
+
+        <div class="callout" style="margin-top:2rem">
+          <h3>What I'm Learning</h3>
+          <p>This project is teaching me how to balance user experience with business viability, conduct comprehensive market research and competitive analysis, and design for real-time interactions. I'm also learning about music licensing, API integration planning, and how to create products that enhance, rather than distract from, live experiences.</p>
         </div>
       </div>
     </section>
